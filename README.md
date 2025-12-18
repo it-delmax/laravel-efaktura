@@ -303,6 +303,57 @@ return [
 ];
 ```
 
+## Scheduler (Subscribe)
+
+eFaktura API zahteva da se svaki dan pozove `subscribe` endpoint da biste primali notifikacije o promenama statusa faktura za sledeći dan.
+
+### Automatski scheduler
+
+Omogućite automatski scheduler u `.env`:
+
+```env
+EFAKTURA_SCHEDULER_ENABLED=true
+EFAKTURA_SUBSCRIBE_AT=00:05
+EFAKTURA_SCHEDULER_LOG=true
+```
+
+Paket će automatski registrovati scheduled task koji pokreće `efaktura:subscribe` komandu svaki dan u podešeno vreme.
+
+### Ručno pokretanje
+
+Možete ručno pokrenuti subscribe komandu:
+
+```bash
+php artisan efaktura:subscribe
+```
+
+### Manualna konfiguracija schedulera
+
+Ako želite više kontrole, možete onemogućiti automatski scheduler i dodati task ručno u `routes/console.php`:
+
+```php
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::command('efaktura:subscribe')
+    ->dailyAt('00:05')
+    ->withoutOverlapping()
+    ->onOneServer()
+    ->emailOutputOnFailure('admin@example.com');
+```
+
+### .env opcije za scheduler
+
+```env
+# Omogući/onemogući automatski scheduler
+EFAKTURA_SCHEDULER_ENABLED=true
+
+# Vreme pokretanja (format HH:MM)
+EFAKTURA_SUBSCRIBE_AT=00:05
+
+# Logovanje rezultata
+EFAKTURA_SCHEDULER_LOG=true
+```
+
 ## Testiranje
 
 Za testiranje koristite demo okruženje:
