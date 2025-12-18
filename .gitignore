@@ -1,0 +1,78 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Composer
+composer.lock
+composer.phar
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache/
+phpunit.xml
+
+# IDE & Editors
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Build & Coverage
+/build/
+/coverage/
+.php-cs-fixer.cache
+.phpcs-cache
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+*.log
+logs/
+
+# Testing
+/tests/coverage/
+.pest/
+
+# Package development
+/workbench/
+
+# Laravel specific (if testing in Laravel app)
+/bootstrap/cache/
+/storage/*.key
+/storage/app/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+!storage/**/.gitkeep
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache

@@ -1,0 +1,54 @@
+{
+  "name": "it-delmax/laravel-efaktura",
+  "description": "Laravel 12 wrapper for Serbian eFaktura API (Ministarstvo finansija)",
+  "keywords": [
+    "laravel",
+    "efaktura",
+    "serbia",
+    "invoice",
+    "api",
+    "mfin"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nikola Marcic",
+      "email": "nikola.marcic@delmax.rs"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "guzzlehttp/guzzle": "^7.8",
+    "illuminate/support": "^11.0|^12.0",
+    "illuminate/contracts": "^11.0|^12.0"
+  },
+  "require-dev": {
+    "laravel/framework": "^11.0|^12.0",
+    "orchestra/testbench": "^9.0|^10.0",
+    "phpunit/phpunit": "^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ItDelmax\\LaravelEfaktura\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ItDelmax\\LaravelEfaktura\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ItDelmax\\LaravelEfaktura\\EfakturaServiceProvider"
+      ],
+      "aliases": {
+        "Efaktura": "ItDelmax\\LaravelEfaktura\\Facades\\Efaktura",
+        "SalesInvoice": "ItDelmax\\LaravelEfaktura\\Facades\\SalesInvoice",
+        "PurchaseInvoice": "ItDelmax\\LaravelEfaktura\\Facades\\PurchaseInvoice"
+      }
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
