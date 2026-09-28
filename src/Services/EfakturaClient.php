@@ -235,6 +235,11 @@ class EfakturaClient implements EfakturaClientInterface
             return ['raw' => $body];
         }
 
+        // API za neke endpointe (npr. subscribe) vraća JSON skalar ("...", broj, true)
+        if (! is_array($decoded)) {
+            return ['raw' => is_string($decoded) ? $decoded : $body];
+        }
+
         return $decoded;
     }
 }
